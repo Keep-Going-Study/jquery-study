@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>로그인</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
+</head>
+<body>
+  <div class="login-form">
+    <form>
+      <input type="text" name="email" id="email-input" class="text-field" placeholder="아이디" ><br>
+      <input type="password" name="password" id="password-input" class="text-field" placeholder="비밀번호"><br>
+      <input type="submit" value="로그인" id="submit-btn">
+    </form>
+
+    <div class="links">
+      <a href="#">비밀번호를 잊어버리셨나요?</a>
+    </div>
+  </div>
+
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script>
+    // 여기에 코드를 작성하세요.
+    let id = document.getElementById('email-input');
+    let pw = document.getElementById('password-input');
+
+    $('.text-field').on('input',changeButton);
+    
+    function changeButton(){
+      if( (id.value == '') || (pw.value == '')){  // 둘 중에 입력 안 된 것이 있을 때
+        $('#submit-btn').css('background-color', '#9B9B9B');
+      }
+
+      else{ // 모두 입력됐을때
+        $('#submit-btn').css('background-color', '#1bbc9b');
+      }
+
+    }
+
+    
+     // $('#submit-btn').css('background-color', '#1bbc9b');
+    
+
+   
+
+  </script>
+</body>
+</html>

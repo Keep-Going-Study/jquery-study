@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Travel Website</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="css/styles.css">
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+</head>
+<body>
+  <img id="logo" src="images/logo.png" width="165" height="58">
+ 
+  <div id="menu">
+    <a id='home'  >Home</a>
+    <a id='seoul' >Seoul</a>
+    <a id='tokyo' >Tokyo</a>
+    <a id='paris' >Paris</a>
+  </div>
+
+  <img id="photo" src="images/home.jpg" width="90%">
+
+  <script>
+
+    $('#home').on('click',clickHome);
+    $('#seoul').on('click',clickSeoul);
+    $('#tokyo').on('click',clickTokyo);
+    $('#paris').on('click',clickParis);
+
+    $(document).on('keydown',processKeyEvent);
+    
+
+      var a = document.getElementsByTagName("a");
+    // 사진을 바꿔주는 함수
+    function clickHome() {
+      
+        $('#photo').attr("src", 'images/home.jpg');
+        a[0].style.fontWeight = 'bold';
+        a[1].style.fontWeight = 'normal';
+        a[2].style.fontWeight = 'normal';
+        a[3].style.fontWeight = 'normal';
+    }
+
+    function clickSeoul() {
+      $('#photo').attr("src", 'images/seoul.jpg');
+        $('#home').css('fontWeight','normal');
+        $('#tokyo').css('fontWeight','normal');
+        $('#paris').css('font-weight','normal');
+      //  a[0].style.fontWeight = 'normal';
+       // a[2].style.fontWeight = 'normal';
+        //a[3].style.fontWeight = 'normal';
+        a[1].style.fontWeight = 'bold';
+       
+    }
+
+    function clickTokyo() {
+      $('#photo').attr("src", 'images/tokyo.jpg');
+        a[0].style.fontWeight = 'normal';
+        a[2].style.fontWeight = 'bold';
+        a[1].style.fontWeight = 'normal';
+        a[3].style.fontWeight = 'normal';
+    }
+    
+    function clickParis() {
+      $('#photo').attr("src",'images/paris.jpg');
+        a[0].style.fontWeight = 'normal';
+        a[3].style.fontWeight = 'bold';
+        a[1].style.fontWeight = 'normal';
+        a[2].style.fontWeight = 'normal';
+    }
+
+    // 키보드 이벤트 핸들링
+    function processKeyEvent(e){
+      if(e.key == 1){
+        clickHome();
+      }
+      else if(e.key == 2){
+        clickSeoul();
+      }
+      else if(e.key == 3){
+        clickTokyo();
+      }
+      else if(e.key == 4){
+        clickParis();
+      }
+       
+
+    }
+
+
+
+   
+    
+  </script>
+</body>
+</html>
