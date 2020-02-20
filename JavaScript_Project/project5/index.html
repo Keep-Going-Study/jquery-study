@@ -29,7 +29,7 @@
         <!-- 만나기 시작한 날짜 -->
         <div class="date-row">
           <label for="start">시작일</label>
-          <input type="date" name="start" id="start">
+          <input type="date" name="start" id="start"> 
         </div>
 
         <!-- 며칠됐는지 계산하기! -->
@@ -43,6 +43,25 @@
       crossorigin="anonymous"></script>
     <script>
       // 코드를 입력하세요!
+      let date_input = $('#start'); // 날짜를 다 입력하지 않으면 .val 결과 "" 로 나옴
+      let button_calc = $('#calculate');
+
+      button_calc.on('click',check); // 함수명에 괄호쳐도되는지..? 실험해보기
+
+      function check(){
+        if(date_input.val() == ""){
+          alert('시작 날짜를 입력해주세요!');
+        }
+
+        else{
+          let now = new Date();
+          let start = new Date(date_input.val());
+          let period =Math.floor( ( now.getTime() - start.getTime() ) / 86400000);
+          let d_day = period  + 1;
+          $('#day-count').text(d_day);
+        }
+      }
+      
     </script>
   </body>
 </html>
