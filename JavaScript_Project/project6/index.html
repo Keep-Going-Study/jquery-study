@@ -64,19 +64,13 @@
       </div>
     </div>
 
+    
     <script
       src="https://code.jquery.com/jquery-3.2.1.min.js"
       integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
       crossorigin="anonymous"></script>
+
     <script>
-      // 여기에 코드를 입력하세요.
-      let play_btn = $('#play-btn');
-      let stop_btn = $('#stop-btn');
-      let audioFile = new Audio('audio/loop.mp3');
-
-      play_btn.on('click',playMusic);
-      stop_btn.on('click',stopMusic);
-
       function playMusic(){
         audioFile.play();
       }
@@ -85,6 +79,52 @@
         audioFile.pause();
         audioFile.currentTime = 0;
       }
+
+      function presskey(e){
+        if(e.key>=1 && e.key<=9){
+          $('#cell'+ e.key).addClass('playing');
+          audioArray[Number(e.key) - 1].currentTime = 0;
+          audioArray[Number(e.key) - 1].play();
+        }
+      }
+
+      function cancel(e){
+        if(e.key>=1 && e.key<=9){
+          $('#cell'+ e.key).removeClass('playing');
+        }
+      }
+      
+     
+      
+
+    </script>
+
+    <script>
+      // 여기에 코드를 입력하세요.
+      let play_btn = $('#play-btn');
+      let stop_btn = $('#stop-btn');
+      let audioFile = new Audio('audio/loop.mp3');
+      
+      let audioArray = new Array();
+      audioArray.push(new Audio('audio/01_kick_drum.wav'));
+      audioArray.push(new Audio('audio/02_closed_hihat.wav'));
+      audioArray.push(new Audio('audio/03_open_hihat.wav'));
+      audioArray.push(new Audio('audio/04_clap.wav'));
+      audioArray.push(new Audio('audio/05_snap.wav'));
+      audioArray.push(new Audio('audio/06_crash.wav'));
+      audioArray.push(new Audio('audio/07_tom1.wav'));
+      audioArray.push(new Audio('audio/08_tom2.wav'));
+      audioArray.push(new Audio('audio/09_tambourine.wav'));
+
+      play_btn.on('click',playMusic);
+      stop_btn.on('click',stopMusic);
+
+      $(document).on('keydown', presskey);
+      $(document).on('keyup', cancel);
+
+      
+
+
     </script>
   </body>
 </html>
