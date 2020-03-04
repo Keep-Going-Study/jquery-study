@@ -42,6 +42,26 @@
       crossorigin="anonymous"></script>
     <script>
       // 코드를 입력하세요.
+      $('#popup-trigger').on('click',show_popup);
+  
+
+      $('#close-btn').on('click', hide_popup);
+      $(document).on('keydown', hide_popup);
+
+
+      function show_popup(){
+        $('#popup').fadeIn(1000);
+        
+      }
+
+      function hide_popup(e){
+        if(e.type == 'keydown' && e.key == 'Escape'){
+          $('#popup').fadeOut(1000);
+        }
+
+        if(e.type == 'click')
+         $('#popup').fadeOut(1000);
+      }
     </script>
   </body>
 </html>
