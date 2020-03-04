@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet" />
+    <title>Document</title>
+</head>
+<body>
+    <div class='top'>
+        Fade away...
+    </div>
+
+    <button class='go-to-top'>Go To Top</button>
+
+    
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous">
+    </script>
+
+    <script>
+        $(window).on('scroll', function(){
+            //console.log( $(window).scrollTop());
+            $('.top').css('opacity', 1 - $(window).scrollTop() / 
+            $('.top').height());
+        
+        });
+
+        $('.go-to-top').on('click',function(){
+            // $(window).scrollTop(0); // 맨 위로 가기
+            $('html,body').animate( {scrollTop: 0}, 500); // 맨 위로 갈때 애니메이션 효과 추가
+        })
+
+    </script>
+   
+</body>
+</html>
