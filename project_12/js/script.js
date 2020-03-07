@@ -54,6 +54,9 @@ function scrollHandler(){
     if( windowBottom >= (documentHeight - 500) ){
         $('.to-top-btn').fadeIn(1000);
     }
+    else{
+        $('.to-top-btn').fadeOut(1000);
+    }
 
 
 }
@@ -66,6 +69,10 @@ function scrollHandler(){
  
 
   $('.to-top-btn').on('click',function(){
-      $(window).scrollTop(0); // 서서히 올라가게 하는 것 구현하기
       $(this).fadeOut(1000);
-  })
+      $('body,html').animate({scrollTop:0},800);
+      // 서서히 올라가는 것 구현
+      // body 를 적용하지 않으면 IE 에선 적용 안된다고함.
+      // 원래 jQuery animate 에는 css 속성만 올 수 있지만
+      // scrollTop 은 예외적으로 된다.
+    });
