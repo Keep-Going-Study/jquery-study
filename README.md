@@ -1,4 +1,3 @@
-# JavaScript_Project
-자바스크립트 개인 프로젝트
-(Toy Project)
+# jquery-study
+jQuery를 이용한 interactive web 연습
 
